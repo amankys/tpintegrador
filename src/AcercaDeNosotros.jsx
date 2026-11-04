@@ -1,37 +1,39 @@
 export default function AcercaDeNosotros() {
   return (
     <div className="nosotros-seccion">
-      <h2>Acerca de Nosotros</h2>
-      
+      <div className="seccion-cabecera">
+        <h2>Acerca de nosotros</h2>
+        <p>Tradición y descanso en el corazón de Salta</p>
+      </div>
+
       <div className="nosotros-contenido">
         <div className="nosotros-texto">
-          <h3>Nuestra Historia</h3>
+          <h3>Nuestra propuesta</h3>
           <p>
-            Hotel Paraíso nació en 2012 como un emprendimiento familiar con una simple
-            pero clara misión: brindar a cada huésped una experiencia cálida, cómoda e
-            inolvidable. A lo largo de los años fuimos modernizando nuestras instalaciones,
-            manteniendo siempre la calidez humana que nos caracteriza.
+            Hotel Salta fue concebido como un refugio de calma para quienes visitan el
+            noroeste argentino. Ubicado a pocas cuadras de la plaza principal y con fácil
+            acceso a los Valles Calchaquíes, combinamos la arquitectura tradicional con
+            el confort contemporáneo.
           </p>
 
-          <h3>Nuestros Valores</h3>
-          <ul>
-            <li><strong>Atención personalizada:</strong> Estamos en cada detalle para que no tengas que preocuparte por nada.</li>
-            <li><strong>Confort y limpieza:</strong> Habitaciones impecables diseñadas para el mejor descanso.</li>
-            <li><strong>Sustentabilidad:</strong> Comprometidos con el cuidado del medio ambiente y el uso responsable de recursos.</li>
-          </ul>
+          <h3>Compromiso con el huésped</h3>
+          <p>
+            Priorizamos la atención cercana y respetuosa, cuidando cada detalle de su estadía
+            para que disfrute plenamente de los paisajes, la gastronomía y la cultura de nuestra provincia.
+          </p>
 
-          <div className="contacto-info">
-            <h4>Contacto & Ubicación</h4>
-            <p>📍 Av. del Libertador 2450, Ciudad de Buenos Aires</p>
-            <p>📞 (+54 11) 4567-8900</p>
-            <p>✉️ reservas@hotelparaiso.com.ar</p>
+          <div className="contacto-caja">
+            <h4>Ubicación y contacto</h4>
+            <p><strong>Dirección:</strong> Caseros 450, Centro Histórico, Salta Capital</p>
+            <p><strong>Teléfono:</strong> +54 (387) 431-2000</p>
+            <p><strong>Email:</strong> contacto@hotelsalta.com.ar</p>
           </div>
         </div>
 
         <div className="nosotros-imagen">
           <img 
-            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" 
-            alt="Fachada del Hotel Paraíso" 
+            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" 
+            alt="Instalaciones de Hotel Salta" 
           />
         </div>
       </div>

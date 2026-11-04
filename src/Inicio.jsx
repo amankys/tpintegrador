@@ -1,40 +1,67 @@
 export default function Inicio({ cambiarSeccion }) {
   return (
     <div className="inicio">
-      {/* Banner principal */}
+      {/* Portada minimalista */}
       <section className="hero">
         <div className="hero-contenido">
-          <h2>Tu descanso soñado comienza acá</h2>
-          <p>Disfrutá del confort, la tranquilidad y la mejor atención en Hotel Paraíso.</p>
-          <button className="btn-primario" onClick={() => cambiarSeccion('reservas')}>
-            Reservar ahora
+          <span className="hero-badge">Salta, Argentina</span>
+          <h2>Hospitalidad y serenidad en el norte argentino</h2>
+          <p>Un espacio pensado para descansar rodeado de la tranquilidad de los cerros salteños.</p>
+          <button className="btn-principal" onClick={() => cambiarSeccion('reservas')}>
+            Ver habitaciones y reservar
           </button>
         </div>
       </section>
 
-      {/* Servicios destacados */}
+      {/* Servicios con iconos vectoriales de linea minimalistas */}
       <section className="servicios">
-        <h3>Nuestros Servicios</h3>
+        <div className="seccion-cabecera">
+          <h3>Servicios incluidos</h3>
+          <p>Comodidades diseñadas para su estancia</p>
+        </div>
+
         <div className="servicios-grid">
           <div className="servicio-card">
-            <span className="servicio-icono">☕</span>
-            <h4>Desayuno Buffet</h4>
-            <p>Pastelería artesanal, frutas de estación y opciones celíacas todos los días.</p>
+            <svg className="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              <line x1="6" y1="1" x2="6" y2="4" />
+              <line x1="10" y1="1" x2="10" y2="4" />
+              <line x1="14" y1="1" x2="14" y2="4" />
+            </svg>
+            <h4>Desayuno regional</h4>
+            <p>Café de especialidad, repostería artesanal salteña y frutas frescas.</p>
           </div>
+
           <div className="servicio-card">
-            <span className="servicio-icono">🏊‍♂️</span>
-            <h4>Piscina & Spa</h4>
-            <p>Piscina climatizada con hidromasaje y sauna para desconectar al máximo.</p>
+            <svg className="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M2 12h20" />
+              <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6" />
+              <path d="M4 12V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6" />
+              <line x1="12" y1="4" x2="12" y2="20" />
+            </svg>
+            <h4>Piscina al aire libre</h4>
+            <p>Sector de relax con reposeras y vista panorámica a la precordillera.</p>
           </div>
+
           <div className="servicio-card">
-            <span className="servicio-icono">📶</span>
-            <h4>Wi-Fi de Alta Velocidad</h4>
-            <p>Conexión estable y rápida en todas las habitaciones y áreas comunes.</p>
+            <svg className="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+              <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+              <circle cx="12" cy="20" r="1" fill="currentColor" />
+            </svg>
+            <h4>Conectividad Wi-Fi</h4>
+            <p>Red de fibra óptica de alta velocidad en todo el establecimiento.</p>
           </div>
+
           <div className="servicio-card">
-            <span className="servicio-icono">🚗</span>
-            <h4>Estacionamiento</h4>
-            <p>Cochera privada y monitoreada las 24 hs para tu total tranquilidad.</p>
+            <svg className="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <rect x="2" y="5" width="20" height="14" rx="2" />
+              <line x1="2" y1="10" x2="22" y2="10" />
+            </svg>
+            <h4>Estacionamiento cubierto</h4>
+            <p>Cochera privada dentro del predio con acceso controlado.</p>
           </div>
         </div>
       </section>

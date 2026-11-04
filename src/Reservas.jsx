@@ -1,62 +1,60 @@
 import { useState } from 'react';
 
 export default function Reservas() {
-  // Lista de las 4 habitaciones del hotel
+  // Las 4 habitaciones del hotel en Salta
   const habitaciones = [
     {
       id: 1,
-      nombre: 'Habitación Individual Estándar',
+      nombre: 'Habitación Estándar',
       capacidad: '1 persona',
-      precio: 45000,
-      descripcion: 'Ideal para viajes de trabajo o estadías cortas. Cuenta con cama individual, escritorio, baño privado y vista interna.',
+      precio: 42000,
+      descripcion: 'Espacio funcional con cama individual, escritorio de trabajo, baño privado y vista al patio interno.',
       imagen: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 2,
-      nombre: 'Habitación Doble Clásica',
+      nombre: 'Habitación Doble Superior',
       capacidad: '2 personas',
-      precio: 68000,
-      descripcion: 'Perfecta para parejas. Equipada con cama Queen, balcón con vista a la ciudad, aire acondicionado y smart TV.',
+      precio: 65000,
+      descripcion: 'Cama Queen, balcón con vista abierta a los cerros, aire acondicionado frío-calor y frigobar.',
       imagen: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 3,
-      nombre: 'Suite Ejecutiva',
+      nombre: 'Suite Colonial',
       capacidad: '2 personas',
-      precio: 105000,
-      descripcion: 'Máximo confort y elegancia. Cama King, hidromasaje, frigobar libre, cafetera espresso y batas de baño.',
-      imagen: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80'
+      precio: 98000,
+      descripcion: 'Cama King, detalles en madera noble y piedra autóctona, hidromasaje y cafetera de cortesía.',
+      imagen: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 4,
-      nombre: 'Suite Familiar Deluxe',
+      nombre: 'Suite Familiar',
       capacidad: '4 personas',
-      precio: 135000,
-      descripcion: 'Espacio y comodidad para toda la familia. Dos ambientes separados, dos baños completos y living con sofá cama.',
+      precio: 125000,
+      descripcion: 'Dos dormitorios independientes, estar integrado y doble baño privado para grupos o familias.',
       imagen: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=600&q=80'
     }
   ];
 
-  // Estados del formulario de reserva
+  // Estados para la selección y el formulario
   const [habitacionSeleccionada, setHabitacionSeleccionada] = useState(null);
   const [nombreHuesped, setNombreHuesped] = useState('');
   const [fechaIngreso, setFechaIngreso] = useState('');
   const [fechaSalida, setFechaSalida] = useState('');
 
-  // Fecha mínima para el check-in (hoy)
   const hoy = new Date().toISOString().split('T')[0];
 
   const manejarReserva = (e) => {
     e.preventDefault();
 
-    // Validaciones básicas
     if (!habitacionSeleccionada) {
-      alert('Por favor, seleccioná una habitación antes de continuar.');
+      alert('Por favor seleccione una habitación antes de confirmar la reserva.');
       return;
     }
 
     if (!fechaIngreso || !fechaSalida) {
-      alert('Por favor, seleccioná las fechas de ingreso y salida en el calendario.');
+      alert('Por favor complete las fechas de ingreso y salida.');
       return;
     }
 
@@ -65,27 +63,26 @@ export default function Reservas() {
       return;
     }
 
-    // Cálculo de cantidad de noches
     const fIngreso = new Date(fechaIngreso);
     const fSalida = new Date(fechaSalida);
     const diferenciaMs = fSalida - fIngreso;
     const noches = Math.ceil(diferenciaMs / (1000 * 60 * 60 * 24));
     const totalEstimado = noches * habitacionSeleccionada.precio;
 
-    // Alerta de confirmación según lo pedido en la consigna
+    // Alerta de confirmacion sobria y formal
     alert(
-      `¡Reserva confirmada con éxito!\n\n` +
-      `🏨 Hotel Paraíso\n` +
-      `👤 Huésped: ${nombreHuesped ? nombreHuesped : 'No especificado'}\n` +
-      `🛏️ Habitación: ${habitacionSeleccionada.nombre}\n` +
-      `📅 Check-in: ${fechaIngreso}\n` +
-      `📅 Check-out: ${fechaSalida}\n` +
-      `🌙 Total de noches: ${noches}\n` +
-      `💵 Total estimado: $${totalEstimado.toLocaleString('es-AR')}\n\n` +
-      `¡Muchas gracias por elegirnos!`
+      `Reserva confirmada con éxito.\n\n` +
+      `Hotel Salta\n` +
+      `Huésped: ${nombreHuesped || 'No especificado'}\n` +
+      `Habitación: ${habitacionSeleccionada.nombre}\n` +
+      `Check-in: ${fechaIngreso}\n` +
+      `Check-out: ${fechaSalida}\n` +
+      `Noches: ${noches}\n` +
+      `Total estimado: $${totalEstimado.toLocaleString('es-AR')}\n\n` +
+      `Gracias por su reserva.`
     );
 
-    // Limpiamos los campos luego de confirmar
+    // Reiniciar campos
     setNombreHuesped('');
     setFechaIngreso('');
     setFechaSalida('');
@@ -94,32 +91,34 @@ export default function Reservas() {
 
   return (
     <div className="reservas-seccion">
-      <h2>Reservá tu Habitación</h2>
-      <p className="subtitulo">Elegí la habitación que más te guste y seleccioná tus fechas de estadía.</p>
+      <div className="seccion-cabecera">
+        <h2>Habitaciones y Reservas</h2>
+        <p>Seleccione una habitación y las fechas de su visita a Salta</p>
+      </div>
 
-      {/* Listado de las 4 habitaciones */}
+      {/* Grid de las 4 habitaciones */}
       <div className="habitaciones-grid">
         {habitaciones.map((hab) => {
-          const estaSeleccionada = habitacionSeleccionada?.id === hab.id;
+          const seleccionada = habitacionSeleccionada?.id === hab.id;
           return (
             <div 
               key={hab.id} 
-              className={`habitacion-card ${estaSeleccionada ? 'seleccionada' : ''}`}
+              className={`habitacion-card ${seleccionada ? 'seleccionada' : ''}`}
             >
               <img src={hab.imagen} alt={hab.nombre} className="habitacion-img" />
               <div className="habitacion-info">
                 <h3>{hab.nombre}</h3>
-                <span className="capacidad">👥 Capacidad: {hab.capacidad}</span>
+                <span className="capacidad">Capacidad: {hab.capacidad}</span>
                 <p className="descripcion">{hab.descripcion}</p>
                 <div className="precio">
-                  ${hab.precio.toLocaleString('es-AR')} <span>/ noche</span>
+                  ${hab.precio.toLocaleString('es-AR')} <span className="por-noche">por noche</span>
                 </div>
                 <button
                   type="button"
-                  className={`btn-seleccionar ${estaSeleccionada ? 'btn-activo' : ''}`}
+                  className={`btn-seleccionar ${seleccionada ? 'btn-activo' : ''}`}
                   onClick={() => setHabitacionSeleccionada(hab)}
                 >
-                  {estaSeleccionada ? '✓ Habitación elegida' : 'Elegir esta habitación'}
+                  {seleccionada ? 'Habitación seleccionada' : 'Seleccionar'}
                 </button>
               </div>
             </div>
@@ -127,27 +126,27 @@ export default function Reservas() {
         })}
       </div>
 
-      {/* Formulario de reserva con rango de fechas en calendario */}
+      {/* Formulario de reserva minimalista */}
       <section className="formulario-contenedor">
-        <h3>Completá los datos de tu estadía</h3>
+        <h3>Datos de la estadía</h3>
         
         {habitacionSeleccionada ? (
           <div className="resumen-seleccion">
-            Habitación seleccionada: <strong>{habitacionSeleccionada.nombre}</strong> (${habitacionSeleccionada.precio.toLocaleString('es-AR')} / noche)
+            Habitación elegida: <strong>{habitacionSeleccionada.nombre}</strong> (${habitacionSeleccionada.precio.toLocaleString('es-AR')} / noche)
           </div>
         ) : (
           <div className="aviso-seleccion">
-            ⚠️ Hacé click en <em>"Elegir esta habitación"</em> arriba para continuar.
+            Seleccione una habitación arriba para continuar con la reserva.
           </div>
         )}
 
         <form onSubmit={manejarReserva} className="formulario-reserva">
           <div className="campo">
-            <label htmlFor="nombre">Nombre y Apellido:</label>
+            <label htmlFor="nombre">Nombre completo</label>
             <input
               type="text"
               id="nombre"
-              placeholder="Ej: Juan Pérez"
+              placeholder="Nombre y apellido"
               value={nombreHuesped}
               onChange={(e) => setNombreHuesped(e.target.value)}
               required
@@ -156,7 +155,7 @@ export default function Reservas() {
 
           <div className="fechas-fila">
             <div className="campo">
-              <label htmlFor="fechaIngreso">Fecha de Ingreso (Check-in):</label>
+              <label htmlFor="fechaIngreso">Fecha de ingreso</label>
               <input
                 type="date"
                 id="fechaIngreso"
@@ -168,7 +167,7 @@ export default function Reservas() {
             </div>
 
             <div className="campo">
-              <label htmlFor="fechaSalida">Fecha de Salida (Check-out):</label>
+              <label htmlFor="fechaSalida">Fecha de salida</label>
               <input
                 type="date"
                 id="fechaSalida"
@@ -181,7 +180,7 @@ export default function Reservas() {
           </div>
 
           <button type="submit" className="btn-confirmar">
-            Confirmar Reserva
+            Confirmar reserva
           </button>
         </form>
       </section>

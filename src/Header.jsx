@@ -2,9 +2,11 @@ export default function Header({ cambiarSeccion, seccionActual }) {
   return (
     <header className="header">
       <div className="header-contenedor">
-        <h1 className="logo" onClick={() => cambiarSeccion('inicio')}>
-          🏨 Hotel Paraíso
-        </h1>
+        <div className="logo" onClick={() => cambiarSeccion('inicio')}>
+          <span className="logo-titulo">HOTEL SALTA</span>
+          <span className="logo-subtitulo">VALLES CALCHAQUÍES</span>
+        </div>
+
         <nav className="nav">
           <button 
             className={`nav-btn ${seccionActual === 'inicio' ? 'activo' : ''}`}
