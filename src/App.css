@@ -1,0 +1,478 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f7f9fc;
+  line-height: 1.6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contenido-principal {
+  flex: 1;
+}
+
+/* ================= HEADER ================= */
+.header {
+  background-color: #1a365d;
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  background: transparent;
+  color: #e2e8f0;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.nav-btn.activo {
+  background-color: #2b6cb0;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ================= INICIO ================= */
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.hero-contenido {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.btn-primario {
+  background-color: #d69e2e;
+  color: #1a202c;
+  border: none;
+  padding: 0.85rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primario:hover {
+  background-color: #b7791f;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.servicios {
+  max-width: 1200px;
+  margin: 3.5rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.servicios h3 {
+  font-size: 2rem;
+  color: #1a365d;
+  margin-bottom: 2rem;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.servicio-card {
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-icono {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.servicio-card h4 {
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.servicio-card p {
+  color: #718096;
+  font-size: 0.95rem;
+}
+
+/* ================= ACERCA DE NOSOTROS ================= */
+.nosotros-seccion {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.nosotros-seccion h2 {
+  font-size: 2.2rem;
+  color: #1a365d;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.nosotros-contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nosotros-texto h3 {
+  color: #2b6cb0;
+  margin-bottom: 0.75rem;
+}
+
+.nosotros-texto p {
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+}
+
+.nosotros-texto ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.nosotros-texto li {
+  margin-bottom: 0.6rem;
+  color: #4a5568;
+}
+
+.contacto-info {
+  background-color: #edf2f7;
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.contacto-info h4 {
+  margin-bottom: 0.5rem;
+  color: #1a365d;
+}
+
+.contacto-info p {
+  margin-bottom: 0.3rem;
+  color: #2d3748;
+}
+
+.nosotros-imagen img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  height: 420px;
+}
+
+/* ================= RESERVAS ================= */
+.reservas-seccion {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.reservas-seccion h2 {
+  font-size: 2.2rem;
+  color: #1a365d;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  text-align: center;
+  color: #718096;
+  margin-bottom: 2.5rem;
+}
+
+.habitaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.habitacion-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.habitacion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.habitacion-card.seleccionada {
+  border-color: #2b6cb0;
+  box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.25);
+}
+
+.habitacion-img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.habitacion-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.habitacion-info h3 {
+  font-size: 1.25rem;
+  color: #2d3748;
+  margin-bottom: 0.4rem;
+}
+
+.capacidad {
+  font-size: 0.85rem;
+  color: #4a5568;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.descripcion {
+  color: #718096;
+  font-size: 0.9rem;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.precio {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #1a365d;
+  margin-bottom: 1rem;
+}
+
+.precio span {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #718096;
+}
+
+.btn-seleccionar {
+  background-color: #edf2f7;
+  color: #2b6cb0;
+  border: 1px solid #cbd5e0;
+  padding: 0.65rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-seleccionar:hover {
+  background-color: #e2e8f0;
+}
+
+.btn-seleccionar.btn-activo {
+  background-color: #2b6cb0;
+  color: white;
+  border-color: #2b6cb0;
+}
+
+/* Formulario de reserva */
+.formulario-contenedor {
+  max-width: 650px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.formulario-contenedor h3 {
+  color: #1a365d;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.resumen-seleccion {
+  background-color: #ebf8ff;
+  border-left: 4px solid #3182ce;
+  padding: 0.8rem 1rem;
+  color: #2b6cb0;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.aviso-seleccion {
+  background-color: #fffaf0;
+  border-left: 4px solid #dd6b20;
+  padding: 0.8rem 1rem;
+  color: #c05621;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.formulario-reserva {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.campo label {
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.campo input {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.fechas-fila {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-confirmar {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  font-size: 1.05rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.btn-confirmar:hover {
+  background-color: #2b6cb0;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background-color: #1a202c;
+  color: #a0aec0;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .header-contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nosotros-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .fechas-fila {
+    flex-direction: column;
+  }
+
+  .hero h2 {
+    font-size: 1.9rem;
+  }
+}
